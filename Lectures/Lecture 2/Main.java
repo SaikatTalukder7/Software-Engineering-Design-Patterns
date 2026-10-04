@@ -4,7 +4,7 @@ public class Main {
 
         Employee employee = new Employee("Saikat");
         Manager manager = new Manager("Manager Saikat", 10);
-        Intern intern = new Intern("Intern Saikat", 7);
+        Intern intern = new Intern("Intern Saikat", 5);
 
         
         System.out.println("Employee");
