@@ -1,148 +1,90 @@
 # Task 1: Company Employee Access System
 
-## Problem Statement
+ ## Problem
 
-Build a small **Employee Access System** for a company using **encapsulation** and **inheritance**.
+ Build a small employee access model for a company, applying **encapsulation** and **inheritance**.
 
-### 1. Create the `Employee` Class
+ ### 1\. Employee Class
 
-Create a class named `Employee` with the following **private fields**:
+ Create class `Employee` with private fields:
 
-- `employeeId` (`int`)
-  - Automatically generated using a private static `int` counter.
-  - The counter must increment whenever a new `Employee` is created.
-  - Do not provide a setter for `employeeId`.
-
+ - `employeeId` (`int`) — auto-generated using a private static `counter`.
 - `name` (`String`)
+- `dailyAccessHours` (`int`) — default value `8`.
 
-- `dailyAccessHours` (`int`)
-  - Default value should be `8`.
+ #### Constructor
 
-#### Constructor
+ - Takes only `name`.
+- Automatically generates `employeeId`.
+- If `name` is blank or empty:
+  - Print an error message.
+  - Set the name to `"Unknown Employee"`.
 
-Create a constructor that takes only the employee's `name`.
+ #### Methods
 
-The `employeeId` must be generated automatically.
+ - Getters for all fields.
+- `describe()` — prints employee ID, name, and allowed daily access hours.
+- No setter for `employeeId`.
 
-If the provided name is blank or empty:
+ ### 2\. Manager Class
 
-- Print an error message.
-- Set the employee's name to `"Unknown Employee"`.
+ Create `Manager extends Employee`.
 
-#### Methods
+ Private field:
 
-Provide getters for:
+ - `teamSize` (`int`)
 
-- `employeeId`
-- `name`
-- `dailyAccessHours`
+ #### Constructor
 
-Add a method called `describe()` that prints:
+ Takes:
 
-- Employee ID
-- Employee name
-- Allowed daily access hours
-
----
-
-### 2. Create the `Manager` Class
-
-Create a subclass named `Manager` that extends `Employee`.
-
-Add the following private field:
-
-- `teamSize` (`int`)
-
-#### Constructor
-
-The `Manager` constructor should take:
-
-- `name`
+ - `name`
 - `teamSize`
 
-#### Daily Access Hours
+ #### Override `getDailyAccessHours()`
 
-Override `getDailyAccessHours()` so that a manager receives:
-
-```text
+```
 8 + (teamSize ~/ 5)
-````
+```
 
- hours per day.
-
- For example:
+ Example:
 
 ```
 teamSize = 12
-
-8 + (12 ~/ 5)
-= 8 + 2
-= 10 hours
+8 + (12 ~/ 5) = 10 hours
 ```
 
- #### Describe Method
+ #### Override `describe()`
 
- Override `describe()` so that it also displays the manager's:
+ Also display the manager's team size.
 
- - Team size
+ ### 3\. Intern Class
 
----
+ Create `Intern extends Employee`.
 
- ### 3\. Create the `Intern` Class
-
- Create a subclass named `Intern` that extends `Employee`.
-
- Add the following private field:
+ Private field:
 
  - `month` (`int`)
 
  #### Constructor
 
- The `Intern` constructor should take:
+ Takes:
 
  - `name`
 - `month`
 
- #### Daily Access Hours
+ #### Override `getDailyAccessHours()`
 
- Override `getDailyAccessHours()` according to the following rules:
+ - Months `1–3` → `4` hours
+- Months `4–6` → `6` hours
 
- | Month | Daily Access Hours |
-| --- | --- |
-| 1–3 | 4 hours |
-| 4–6 | 6 hours |
-
----
-
- ### 4\. Main Program
+ ### 4\. Main
 
  In `Main`:
 
- 1. Create one plain `Employee`.
-2. Create one `Manager`.
-3. Create one `Intern`.
-4. Call `describe()` for each object.
-5. Print `getDailyAccessHours()` for each object.
-6. Create another `Employee` with a blank name to demonstrate constructor validation.
-
----
-
- ## Expected Concepts
-
- Your solution should demonstrate:
-
- - Encapsulation
-- Private fields
-- Getters
-- Constructors
-- Static variables
-- Automatic ID generation
-- Inheritance
-- Method overriding
-- Constructor validation
-- Integer division using `~/`
-
-```
-
-This is the **question only**, ready to put into `README.md`.
-```
+ - Create one plain `Employee`.
+- Create one `Manager`.
+- Create one `Intern`.
+- Call `describe()` for each object.
+- Print `getDailyAccessHours()` for each object.
+- Create another `Employee` with a blank name to demonstrate constructor validation.
