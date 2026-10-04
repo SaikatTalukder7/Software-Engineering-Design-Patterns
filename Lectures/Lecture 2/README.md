@@ -1,6 +1,3 @@
-Got it — you need **only the question/problem statement**, properly formatted for a `README.md`, **not the answer/code**.
-
-````
 # Task 1: Company Employee Access System
 
 ## Problem Statement
