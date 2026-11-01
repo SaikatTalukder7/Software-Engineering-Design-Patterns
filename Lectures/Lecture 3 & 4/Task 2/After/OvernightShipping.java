@@ -1,0 +1,7 @@
+public class OvernightShipping implements ShippingStrategy {
+
+    @Override
+    public double calculateCost(double weight) {
+        return weight * 50;
+    }
+}
